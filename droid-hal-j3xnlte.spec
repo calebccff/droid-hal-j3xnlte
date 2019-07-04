@@ -9,6 +9,21 @@
 
 %define installable_zip 1
 
+%define enable_kernel_update 1
+
+%define makefstab_skip_entries /dev/cpuctl /dev/stune
+
+%define android_config \
+#define MALI_QUIRKS 1 \
+%{nil}
+
+%define straggler_files \
+/selinux_version\
+/file_contexts.bin\
+/property_contexts\
+/service_contexts\
+%{nil}
+
 %include rpm/dhd/droid-hal-device.inc
 
 # IMPORTANT if you want to comment out any macros in your .spec, delete the %
